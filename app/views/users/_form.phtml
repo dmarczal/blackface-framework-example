@@ -1,0 +1,25 @@
+<form role="form" action="<?= $this->action ?>" method="POST">
+
+  <div class="form-group <?= $this->user->errors('name') ? 'has-error' : '' ?>">
+    <label class="control-label" for="user_name">Nome:*</label>
+    <input type="text" class="form-control" name="user[name]" value="<?= $this->user->getName() ?>"
+           id="user_name" placeholder="Seu nome">
+    <p class="help-block"><?= $this->user->errors('name') ?></p>
+  </div>
+
+  <div class="form-group <?= $this->user->errors('email') ? 'has-error' : '' ?>">
+    <label class="control-label" for="user_email">Email:*</label>
+    <input type="text" class="form-control" name="user[email]" value="<?= $this->user->getEmail() ?>"
+           id="user_email" placeholder="Seu nome">
+    <p class="help-block"><?= $this->user->errors('email') ?></p>
+  </div>
+
+  <div class="form-group <?= $this->user->errors('password') ? 'has-error' : '' ?>">
+    <label class="control-label" for="user_password">Senha:*</label>
+    <input type="password" class="form-control" name="user[password]" id="user_password">
+    <p class="help-block"><?= $this->user->errors('password') ?></p>
+  </div>
+
+  <button type="submit" class="btn btn-primary"> <?= $this->submit ?></button>
+</form>
+

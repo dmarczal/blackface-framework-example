@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title><?= APP_NAME ?></title>
+    <?php stylesheet_include_tag('/bootstrap/css/bootstrap.min.css',
+                                 'application.css'); ?>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+
+  <div class="container">
+     <div class="row">
+       <div class="col-md-3">
+         <div class="side-container">
+           <ul class="nav nav-pills nav-stacked custum-side-nav">
+             <?php if ($this->currentUser()) { ?>
+               <li class="clearfix dropdown">
+                  <span class="pull-left">Olá <?= $this->currentUser()->getName() ?></span>
+                  <div class="pull-right">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                     Opções <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" >
+                      <li class="<?= active_class('/perfil') ?>">
+                         <?= link_to('/perfil', 'Meu Perfil') ?>
+                      </li>
+                      <li>
+                         <?= link_to('/logout', 'Sair') ?>
+                      </li>
+                    </ul>
+                  </div>
+               </li>
+             <?php } else { ?>
+               <li class="<?= active_class('/login') ?>">
+                <?= link_to('/login', 'Logar-se') ?>
+               </li>
+             <?php } ?>
+           </ul>
+           <hr />
+           <h5>Menu</h5>
+           <ul class="nav nav-pills nav-stacked custum-side-nav">
+             <li class="<?= active_class('/') ?>">
+                <?= link_to('/', 'Página Inicial') ?>
+             </li>
+             <li class="<?= active_class('/fale-conosco') ?>">
+                <?= link_to('/fale-conosco', 'Fale Conosco') ?>
+             </li>
+             <li class="<?= active_class('/registre-se') ?>">
+                <?= link_to('/registre-se', 'Registrar-se') ?>
+             </li>
+           </ul>
+         </div>
+       </div>
+
+       <div class="col-md-9">
+         <div class="center-container">
+            <?php foreach(Flash::message() as $key => $value){ ?>
+              <div class="alert alert-<?= $key ?> fade in">
+                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                 <?= $value ?>
+              </div>
+            <?php } ?>
+
+            <?php require $view; ?>
+
+         </div>
+       </div>
+     </div>
+  </div>
+
+<?php javascript_include_tag('jquery-1.10.2.min.js',
+                             '/bootstrap/js/bootstrap.min.js',
+                             'application.js') ?>
+</body>
+</html>
