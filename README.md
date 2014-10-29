@@ -5,12 +5,11 @@ The main objective is to teach web development with PHP, OO, MVC and frameworks.
 
 ### Getting Started
 
-1. Download de app on your web directory.
-2. Download de app on your web directory(e.g. /var/ww).
-3. Run the command ./scripts/rename_hta_sr.sh # rename the htaccess directory
-4. Change the databse user and passswor on ./scripts/db.sh
-5. Run the command ./scripts/db.sh reload # this command load the database  
-6. Access http://localhost/blackface-todo
+1. Download de app on your web directory (e.g. /var/ww).
+2. Run the command ./scripts/setup.sh # to set application paths
+3. Change the databse user and passswor on ./scripts/db.sh
+4. Run the command ./scripts/db.sh reload # this command load the database
+5. Access http://localhost/blackface-todo
 
 ### See the framework
 
