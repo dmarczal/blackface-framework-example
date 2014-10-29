@@ -5,7 +5,12 @@ The main objective is to teach web development with PHP, OO, MVC and frameworks.
 
 ### Getting Started
 
-1. Download de app on your web directory (e.g. /var/ww).
+1. Download de app on your web directory
+```shellscript
+  cd /var/www
+  git clone https://github.com/dmarczal/blackface-framework-example blackface-todo
+```
+
 2. Run the command ./scripts/setup.sh # to set application paths
 3. Change the databse user and passswor on ./scripts/db.sh
 4. Run the command ./scripts/db.sh reload # this command load the database
