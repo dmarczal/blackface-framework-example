@@ -1,5 +1,2 @@
-logs/*.log
+/logs
 *.sw[onp]
-
-app/assets/photos/thumb/*
-app/assets/photos/original/*
